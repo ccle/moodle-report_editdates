@@ -291,8 +291,12 @@ function report_editdates_extend_navigation_course($navigation, $course, $contex
         if ($activitytype = optional_param('activitytype', '', PARAM_PLUGIN)) {
             $url->param('activitytype', $activitytype);
         }
+        // START UCLA MOD: CCLE-7387 - Remove/rename links in Admin panel.
+        // $navigation->add(get_string( 'editdates', 'report_editdates' ),
+        //         $url, navigation_node::TYPE_SETTING, null, null, new pix_icon('i/report', ''));
         $navigation->add(get_string( 'editdates', 'report_editdates' ),
-                $url, navigation_node::TYPE_SETTING, null, null, new pix_icon('i/report', ''));
+                $url, navigation_node::TYPE_SETTING, null, 'editdates', new pix_icon('i/report', ''));
+        // END UCLA MOD: CCLE-7387.
     }
 }
 
